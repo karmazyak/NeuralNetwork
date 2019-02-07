@@ -25,19 +25,13 @@ int main(int argc, const char * argv[]) {
     k.PrintOut() ;
     double z;
     vector<double> out;
-    for(int l=0;l<30;l++){
-        z=Rand(atan(0));
-        inp.push_back(z);
-        out.push_back(sin(z));
-        
-    }
+    cout<<"qqqqqq";
     for(int i=0;i<500;i++){
         k.addInputToLayer(inp);
         k.FeedForvard();
         k.BackProp(out);
     }
     
-    cout<<"gfjngdnfgghddghn"<<endl;
     k.PrintOut();
     cout<<"out"<<endl;
     for(auto c:out)
