@@ -17,71 +17,15 @@
 #include <iostream>
 #include <algorithm>
 #include <fstream>
-
+#include "ActFunc.cpp"
 
 using namespace std;
 
 
-template <typename T,class F>
+template <typename T>
 class Net;
 
-template <typename T>
-class tg {
-    
-public:
-    T operator() (T i){
-        return tan(i);
-    }
-    T operator[](T i){
-        return 1/(cos(i)*cos(i));
-    }
-};
 
-template <typename T>
-class linear {
-    
-public:
-    T operator() (T i){
-        return i;
-    }
-    T operator[](T i){
-        return 1;
-    }
-};
-
-template <typename T>
-class sigm {
-    
-public:
-    T operator() (T i){
-        return 10/(1+exp(i*(-1)));
-    }
-    T operator[](T i){
-        return (10/(1+exp(i*(-1))))*(1-1/(1+exp(i*(-1))));
-    }
-};
-
-template <typename T>
-class porog {
-    
-public:
-    T operator() (T i){
-        if (i>0) return 1;
-        else return 0;
-    }
-};
-
-template <typename T>
-class bipsigm {
-    
-public:
-    T operator() (T i){
-        return 1-2/(1+exp(i*(-1)));
-    }
-    T operator[](T i){
-        return (1/(1+exp(i*(-1))))*(1-1/(1+exp(i*(-1))));
-    }
-};
 
 class Connection
 {
@@ -97,19 +41,19 @@ public:
 
 
 
-template <typename T=double,class F=sigm<T> >
+template <typename T=double>
 class Neuron
 {
 public:
-    F actf;
+    ActF<T>* actf;
     T sum;
     unsigned int typeN;
     double m_outputVal;
     unsigned int m_myIndex;
     unsigned int num_of_outputs;
     vector<Connection> m_outputWeights;
-    Neuron(unsigned int index,unsigned int outnum,double b=0);
-    void countOut(vector<Neuron<T,F>> &prevLayer);
+    Neuron(ActF<T> *,unsigned int index,unsigned int outnum,double b=0);
+    void countOut(vector<Neuron<T>> &prevLayer);
     void updateW(vector<double> w);
     double bias;
 private:

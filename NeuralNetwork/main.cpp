@@ -14,27 +14,11 @@ double Rand(double a){
 }
 
 int main(int argc, const char * argv[]) {
-    Net<double,sigm<double>> & k=Net<double,sigm<double>>::CreateNet();
-    vector<unsigned int> Conf={30,3,30};
-    vector<vector<vector<double>>> W={{{0.45,0.78},{-0.12,0.13}},{{1.5},{-2.3}}};
-    vector<double> inp={1};
-    k.MakeNet(Conf,0.02,0);
-    k.UpdateAllNet(W);
-    k.addInputToLayer(inp);
+    Net<double> & k=Net<double>::CreateNet();
+    ActFContainer<double> &j=ActFContainer<double>::Instance();
+    k.MakeNet({&j.bigsim,&j.purelin,&j.sigm}, {3,4,1});
+    k.addInputToLayer({3,4,5});
     k.FeedForvard();
-    k.PrintOut() ;
-    double z;
-    vector<double> out;
-    cout<<"qqqqqq";
-    for(int i=0;i<500;i++){
-        k.addInputToLayer(inp);
-        k.FeedForvard();
-        k.BackProp(out);
-    }
-    
-    k.PrintOut();
-    cout<<"out"<<endl;
-    for(auto c:out)
-        cout<<c;
+    k.BackProp({7,8,9});
     return 0;
 }

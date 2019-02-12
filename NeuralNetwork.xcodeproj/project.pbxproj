@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D327E5372205ECFD0058C792 /* Neuron.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D327E5352205ECFD0058C792 /* Neuron.cpp */; };
+		D35F6AB4221314ED0001ED28 /* ActFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D35F6AB2221314ED0001ED28 /* ActFunc.cpp */; };
 		D372CBF62201A99400A2F5B6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D372CBF52201A99400A2F5B6 /* main.cpp */; };
 		D372CC012201AD2000A2F5B6 /* Net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D372CBFF2201AD2000A2F5B6 /* Net.cpp */; };
 		D3DD6EDF220826A4002E8B26 /* CreateFromINI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3DD6EDD220826A4002E8B26 /* CreateFromINI.cpp */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		D327E5352205ECFD0058C792 /* Neuron.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Neuron.cpp; sourceTree = "<group>"; };
 		D327E5362205ECFD0058C792 /* Neuron.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Neuron.hpp; sourceTree = "<group>"; };
+		D35F6AB2221314ED0001ED28 /* ActFunc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ActFunc.cpp; sourceTree = "<group>"; };
+		D35F6AB3221314ED0001ED28 /* ActFunc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ActFunc.hpp; sourceTree = "<group>"; };
 		D372CBF22201A99400A2F5B6 /* NeuralNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
 		D372CBF52201A99400A2F5B6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D372CBFF2201AD2000A2F5B6 /* Net.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Net.cpp; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				D372CBF52201A99400A2F5B6 /* main.cpp */,
+				D35F6AB2221314ED0001ED28 /* ActFunc.cpp */,
+				D35F6AB3221314ED0001ED28 /* ActFunc.hpp */,
 				D372CBFF2201AD2000A2F5B6 /* Net.cpp */,
 				D372CC002201AD2000A2F5B6 /* Net.hpp */,
 				D327E5352205ECFD0058C792 /* Neuron.cpp */,
@@ -135,6 +140,7 @@
 			files = (
 				D372CC012201AD2000A2F5B6 /* Net.cpp in Sources */,
 				D372CBF62201A99400A2F5B6 /* main.cpp in Sources */,
+				D35F6AB4221314ED0001ED28 /* ActFunc.cpp in Sources */,
 				D3DD6EDF220826A4002E8B26 /* CreateFromINI.cpp in Sources */,
 				D327E5372205ECFD0058C792 /* Neuron.cpp in Sources */,
 			);
