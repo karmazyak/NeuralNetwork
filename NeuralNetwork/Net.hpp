@@ -32,7 +32,7 @@ public:
     void FeedForvard();
     void UpdateAllNet(vector<vector<vector<double>>> w);
     void PrintOut() const;
-    void MakeNet(vector<ActF<T> *>,vector<unsigned int> NetConf,double rate=0.1,double b=-999999);
+    void MakeNet(vector<ActF<T> *>,vector<unsigned int> NetConf,double rate=0.1,vector<double> b={-999999});
     void BackProp(vector<T> target);
     void CountErrorLayer(unsigned int currLayerInd);
     static Net& CreateNet(){

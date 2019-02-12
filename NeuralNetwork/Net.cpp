@@ -69,8 +69,8 @@ void Net<T>::PrintOut() const{
 }
 
 template <typename T>
-void Net<T>::MakeNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate,double bia){
-    if(bia==-999999){
+void Net<T>::MakeNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate,vector<double> bia){
+    if(bia[0]==-999999){
     int z=0;
     learning_rate=rate;
     hiden_neur_num=0;
@@ -107,11 +107,11 @@ else {
     input_neurons_num=NetConf[0];
     factor_mashtab=0.7*pow(double(hiden_neur_num),1/double(input_neurons_num));
     for(int i=0;i<NetConf.size()-1;i++){
-        this->addLayer(functs[i],NetConf[i], NetConf[i+1],bia);
+        this->addLayer(functs[i],NetConf[i], NetConf[i+1],bia[i]);
         z=i;
         
     }
-    this->addLayer(functs[z+1],NetConf[z+1], 0,bia);
+    this->addLayer(functs[z+1],NetConf[z+1], 0,bia[z+1]);
 }
 
 }
@@ -152,7 +152,7 @@ void Net<T>::CountErrorLayer(unsigned int currLayerInd){
 
 template <typename T>
 void Net<T>::BackProp(vector<T> target){
-    for(unsigned int i=m_layer.size()-1;i>0;i--){
+    for(unsigned long int i=m_layer.size()-1;i>0;i--){
         if(m_layer[i][0].typeN){
             this->CountErrorLastLayer(target);
         }

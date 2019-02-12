@@ -8,15 +8,6 @@
 
 #ifndef Neuron_hpp
 #define Neuron_hpp
-#include <random>
-#include <stdio.h>
-#include <vector>
-#include <cmath>
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <fstream>
 #include "ActFunc.cpp"
 
 using namespace std;

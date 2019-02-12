@@ -8,7 +8,15 @@
 
 #ifndef ActFunc_hpp
 #define ActFunc_hpp
-
+#include <random>
+#include <stdio.h>
+#include <vector>
+#include <cmath>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <fstream>
 #include <stdio.h>
 template <typename T>
 class ActF

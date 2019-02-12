@@ -16,7 +16,7 @@ double Rand(double a){
 int main(int argc, const char * argv[]) {
     Net<double> & k=Net<double>::CreateNet();
     ActFContainer<double> &j=ActFContainer<double>::Instance();
-    k.MakeNet({&j.bigsim,&j.purelin,&j.sigm}, {3,4,1});
+    k.MakeNet({&j.linear,&j.tansig,&j.purelin}, {784,200,10});
     k.addInputToLayer({3,4,5});
     k.FeedForvard();
     k.BackProp({7,8,9});
