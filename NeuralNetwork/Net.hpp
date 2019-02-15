@@ -15,7 +15,6 @@ template <typename T>
 class Net {
 private:
     void UpdateLayerW(vector<vector<double>> w,unsigned int LayerInd);
-    vector<T> out;
     void RememberOut();
     vector<vector<Neuron<T>>> m_layer;
     unsigned int input_neurons_num;
@@ -25,6 +24,7 @@ private:
     Net& operator= (Net&)=delete;
     Net(Net &)=delete;
 public:
+    vector<T> out;
     double learning_rate;
     void addLayer(ActF<T>* ActFunc,unsigned int num_of_neurons,unsigned int out_num,double b=0);
     void CountErrorLastLayer(vector<T> target);

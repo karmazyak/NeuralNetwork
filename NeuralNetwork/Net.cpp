@@ -82,7 +82,6 @@ void Net<T>::MakeNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,doubl
     input_neurons_num=NetConf[0];
     factor_mashtab=0.7*pow(double(hiden_neur_num),1/double(input_neurons_num));
     double b;
-    srand(static_cast<unsigned int>(time(0)));
     for(int i=0;i<NetConf.size()-1;i++){ 
         b=2*factor_mashtab*0.00001*(rand()%100000)-factor_mashtab;
         this->addLayer(functs[i],NetConf[i], NetConf[i+1],b);
@@ -124,8 +123,8 @@ void Net<T>::CountErrorLastLayer(vector<T> target){
         delta=(target.at(i)-(*it)[i].m_outputVal)*((*(*it)[i].actf)[(*it)[i].sum]);
         (*it)[i].bias+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta;
+            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
         }
     }
         
@@ -143,8 +142,8 @@ void Net<T>::CountErrorLayer(unsigned int currLayerInd){
         delta=summ.sum*((*(*it)[i].actf)[(*it)[i].sum]);
         (*it)[i].bias+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta;
+            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
         }
     }
     
@@ -152,7 +151,7 @@ void Net<T>::CountErrorLayer(unsigned int currLayerInd){
 
 template <typename T>
 void Net<T>::BackProp(vector<T> target){
-    for(unsigned long int i=m_layer.size()-1;i>0;i--){
+    for(unsigned int i=m_layer.size()-1;i>0;i--){
         if(m_layer[i][0].typeN){
             this->CountErrorLastLayer(target);
         }

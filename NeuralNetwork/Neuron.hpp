@@ -25,7 +25,6 @@ public:
     double deltaWeight;
     Connection(unsigned int num_of_out){
         deltaWeight=0;
-        srand(static_cast<unsigned int>(time(0)));
         weight=1/sqrt(num_of_out)*(2*0.00001*(rand()%100000)-1);
     }
 };
