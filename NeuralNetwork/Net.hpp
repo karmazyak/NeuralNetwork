@@ -36,8 +36,8 @@ public:
     void BackProp(vector<T> target);
     void CountErrorLayer(unsigned int currLayerInd);
     static Net& CreateNet(){
-        static Net k;
-        return k;
+        static Net net;
+        return net;
     }
     
 };

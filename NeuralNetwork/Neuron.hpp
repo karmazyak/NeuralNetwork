@@ -8,6 +8,7 @@
 
 #ifndef Neuron_hpp
 #define Neuron_hpp
+#include "INI.hpp"
 #include "ActFunc.cpp"
 
 using namespace std;
