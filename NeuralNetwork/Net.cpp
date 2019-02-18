@@ -8,8 +8,14 @@
 #include "Net.hpp"
 
 
-
-
+template <typename T>
+void Net<T>::zeroNet(){
+    for(auto itl=m_layer.begin()+1;itl<m_layer.end();itl++){
+        for(auto &neur:*itl)
+            neur.zero();
+        
+    }
+}
 
 template <typename T>
 void Net<T>::RememberOut(){
@@ -120,11 +126,11 @@ void Net<T>::CountErrorLastLayer(vector<T> target){
     auto it=m_layer.end()-1;
     auto prevL=it-1;
     for(int i=0;i<min((*it).size(),target.size());i++){
-        delta=(target.at(i)-(*it)[i].m_outputVal)*((*(*it)[i].actf)[(*it)[i].sum]);
+        delta=(target.at(i)-(*it)[i].m_outputVal_sum)*((*(*it)[i].actf)[(*it)[i].sum_sum]);
         (*it)[i].bias+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal_sum;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal_sum;
         }
     }
         
@@ -139,11 +145,11 @@ void Net<T>::CountErrorLayer(unsigned int currLayerInd){
     for(int i=0;i<(*it).size();i++){
         summ.zero();
         summ=for_each((*it)[i].m_outputWeights.begin(),(*it)[i].m_outputWeights.end(),summ );
-        delta=summ.sum*((*(*it)[i].actf)[(*it)[i].sum]);
+        delta=summ.sum*((*(*it)[i].actf)[(*it)[i].sum_sum]);
         (*it)[i].bias+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal_sum;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal_sum;
         }
     }
     
@@ -158,5 +164,19 @@ void Net<T>::BackProp(vector<T> target){
         else{
             this->CountErrorLayer(i);
         }
+    }
+}
+
+template <typename T>
+void Net<T>::Fit(vector<vector<T>> input,vector<vector<T>> target,unsigned int epoch_num){
+    for(int i=0;i<epoch_num;i++){
+        target_sum.assign(target[0].size(), 0);
+        for(int j=0;j<min(target.size(),input.size()) ; j++ ) {
+            addInputToLayer(input[j]);
+            FeedForvard();
+            target_sum+=target[j];
+        }
+        BackProp(target_sum);
+        zeroNet();
     }
 }

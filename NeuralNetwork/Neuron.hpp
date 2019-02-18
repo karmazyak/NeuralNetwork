@@ -40,12 +40,15 @@ public:
     T sum;
     unsigned int typeN;
     double m_outputVal;
+    T m_outputVal_sum;
+    T sum_sum;
     unsigned int m_myIndex;
     unsigned int num_of_outputs;
     vector<Connection> m_outputWeights;
     Neuron(ActF<T> *,unsigned int index,unsigned int outnum,double b=0);
     void countOut(vector<Neuron<T>> &prevLayer);
     void updateW(vector<double> w);
+    void zero();
     double bias;
 private:
 };

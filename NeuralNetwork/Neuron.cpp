@@ -10,7 +10,7 @@
 
 
 
-template <typename T> Neuron<T>::Neuron(ActF<T>* activF,unsigned int index,unsigned int outnum,double b):m_myIndex(index),num_of_outputs(outnum),m_outputVal(0),bias(b){
+template <typename T> Neuron<T>::Neuron(ActF<T>* activF,unsigned int index,unsigned int outnum,double b):m_myIndex(index),num_of_outputs(outnum),m_outputVal(0),bias(b),m_outputVal_sum(0){
     actf=activF;
     for(int k=0;k<outnum;k++){
         m_outputWeights.push_back(Connection(outnum));
@@ -27,7 +27,9 @@ void Neuron<T>::countOut(vector<Neuron<T>> &prevLayer){
         sum+=it->m_outputVal*it->m_outputWeights[this->m_myIndex].weight;
     }
     this->sum=sum;
+    sum_sum+=sum;
     this->m_outputVal=(*this->actf)(sum);
+    m_outputVal_sum+=m_outputVal;
 }
 
 
@@ -45,3 +47,10 @@ struct Sum {
     void zero (){sum=0;}
     T sum;
 };
+
+
+template <typename T>
+void Neuron<T>::zero(){
+    m_outputVal_sum=0;
+    sum_sum=0;
+}

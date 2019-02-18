@@ -22,9 +22,23 @@ int main(int argc, const char * argv[]) {
     NetBuilder<double> * builder=new GdBuilder<double>;
 
     Director<double> dir;
-    Net<double> & net=dir.createWithRandomWeightsFromINI(*builder, "myfile.ini");
-
-    /*
+   Net<double> & net=dir.createWithRandomWeightsFromINI(*builder, "myfile.ini");
+    
+/*
+    FILE* in;
+    float d;
+    int z=0;
+  
+     if ((in=fopen("net_train_weight1.bin","rb"))==NULL) // если файл не открыт
+        cout << "Файл не может быть открыт!\n"; // сообщить об этом
+    else{
+        for(int im=0;im<100;im++){
+    fscanf(in, "%f", &d);
+            weight.push_back(d);
+        }
+        
+    }*/
+        /*
     Net<double> & k=Net<double>::CreateNet();
     ActFContainer<double> &j=ActFContainer<double>::Instance();
     k.MakeNet({&j.linear,&j.sigm,&j.linear}, {1,5,1},0.02);

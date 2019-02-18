@@ -25,6 +25,7 @@ private:
     Net(Net &)=delete;
 public:
     vector<T> out;
+    vector<T> target_sum;
     double learning_rate;
     void addLayer(ActF<T>* ActFunc,unsigned int num_of_neurons,unsigned int out_num,double b=0);
     void CountErrorLastLayer(vector<T> target);
@@ -32,9 +33,11 @@ public:
     void FeedForvard();
     void UpdateAllNet(vector<vector<vector<double>>> w);
     void PrintOut() const;
+    void Fit(vector<vector<T>> input,vector<vector<T>> target,unsigned int epoch_num=20);
     void MakeNet(vector<ActF<T> *>,vector<unsigned int> NetConf,double rate=0.1,vector<double> b={-999999});
     void BackProp(vector<T> target);
     void CountErrorLayer(unsigned int currLayerInd);
+    void zeroNet();
     static Net& CreateNet(){
         static Net net;
         return net;
