@@ -31,6 +31,27 @@ void GdBuilder<T>::UpdateWeights(vector<vector<vector<double>>> w) {
     }
 
 template<typename T>
+void GdBuilder<T>::LoadWeightsFromIni(string name){
+    
+    mINI::INIFile file(name);
+    mINI::INIStructure ini;
+    file.read(ini);
+    string section,weightname;
+    for(int i=0;i<this->net->m_layer.size();i++){
+        section="layer "+to_string(i+1);
+        for(int j=0;j<this->net->m_layer[i].size();j++){
+            this->net->m_layer[i][j].bias=atof(ini[section]["bias"].c_str());
+            for(int k=0;k<this->net->m_layer[i][j].m_outputWeights.size();k++){
+                weightname="w"+to_string(j+1)+"_"+to_string(k+1);
+                    this->net->m_layer[i][j].m_outputWeights[k].weight=atof(ini[section][weightname].c_str());
+            }
+        }
+    }
+
+}
+
+
+template<typename T>
 Net<T>& Director<T>::createWithRandomWeightsFromFunc(NetBuilder<T> & builder,vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate)
 {
     builder.createNet(functs,NetConf,rate);
@@ -44,6 +65,10 @@ Net<T>& Director<T>::createWithWeightsFromFunc(NetBuilder<T> & builder,vector<Ac
     builder.UpdateWeights(w);
     return( *builder.net);
     }
+
+
+
+
 template<typename T>
 Net<T>& Director<T>::createWithRandomWeightsFromINI(NetBuilder<T> & builder,string name){
     mINI::INIFile file(name);
@@ -61,5 +86,12 @@ Net<T>& Director<T>::createWithRandomWeightsFromINI(NetBuilder<T> & builder,stri
     }
     builder.createNet(functs,NetConf,rate);
     
+    return *builder.net;
+}
+
+template<typename T>
+Net<T>& Director<T>::createWithWeightsFromINI(NetBuilder<T> & builder,string nameConf,string nameW){
+    createWithRandomWeightsFromINI(builder,nameConf);
+    builder.LoadWeightsFromIni(nameW);
     return *builder.net;
 }

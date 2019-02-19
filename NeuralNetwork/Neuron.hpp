@@ -24,7 +24,9 @@ class Connection
 public:
     double weight;
     double deltaWeight;
+    double sum_delta;
     Connection(unsigned int num_of_out){
+        sum_delta=0;
         deltaWeight=0;
         weight=1/sqrt(num_of_out)*(2*0.00001*(rand()%100000)-1);
     }
@@ -38,18 +40,17 @@ class Neuron
 public:
     ActF<T>* actf;
     T sum;
+    double delta_bias_sum;
     unsigned int typeN;
     double m_outputVal;
-    T m_outputVal_sum;
-    T sum_sum;
     unsigned int m_myIndex;
     unsigned int num_of_outputs;
     vector<Connection> m_outputWeights;
     Neuron(ActF<T> *,unsigned int index,unsigned int outnum,double b=0);
     void countOut(vector<Neuron<T>> &prevLayer);
     void updateW(vector<double> w);
-    void zero();
     double bias;
+    void BeforNewEpoch(unsigned int iternum);
 private:
 };
 

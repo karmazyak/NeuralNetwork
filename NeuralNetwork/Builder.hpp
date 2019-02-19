@@ -29,6 +29,7 @@ public:
     virtual ~NetBuilder() {}
     virtual void createNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate)=0;
     virtual void UpdateWeights(vector<vector<vector<double>>> w)=0;
+    virtual void LoadWeightsFromIni(string name)=0;
 
 };
 
@@ -40,6 +41,7 @@ class GdBuilder: public NetBuilder<T>
 public:
     void createNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate);
     void UpdateWeights(vector<vector<vector<double>>> w);
+    void LoadWeightsFromIni(string name);
 };
 
 
@@ -53,6 +55,7 @@ public:
     
     Net<T>& createWithWeightsFromFunc(NetBuilder<T> & builder,vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate,vector<vector<vector<double>>> w);
     Net<T>& createWithRandomWeightsFromINI(NetBuilder<T> & builder,string name);
+    Net<T>& createWithWeightsFromINI(NetBuilder<T> & builder,string nameConf,string nameW);
     
 };
 

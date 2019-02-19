@@ -33,6 +33,9 @@
 		D35F6AB3221314ED0001ED28 /* ActFunc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ActFunc.hpp; sourceTree = "<group>"; };
 		D35F6AB52218260D0001ED28 /* Builder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Builder.cpp; sourceTree = "<group>"; };
 		D35F6AB62218260D0001ED28 /* Builder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Builder.hpp; sourceTree = "<group>"; };
+		D35F6AB8221AFC870001ED28 /* MNISTParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MNISTParser.hpp; sourceTree = "<group>"; };
+		D35F6AB9221AFF990001ED28 /* mnist_reader_common.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mnist_reader_common.hpp; sourceTree = "<group>"; };
+		D35F6ABA221B08610001ED28 /* mnist_utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mnist_utils.hpp; sourceTree = "<group>"; };
 		D372CBF22201A99400A2F5B6 /* NeuralNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
 		D372CBF52201A99400A2F5B6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D372CBFF2201AD2000A2F5B6 /* Net.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Net.cpp; sourceTree = "<group>"; };
@@ -80,6 +83,9 @@
 				D327E5352205ECFD0058C792 /* Neuron.cpp */,
 				D327E5362205ECFD0058C792 /* Neuron.hpp */,
 				D3DD6EDE220826A4002E8B26 /* INI.hpp */,
+				D35F6AB8221AFC870001ED28 /* MNISTParser.hpp */,
+				D35F6AB9221AFF990001ED28 /* mnist_reader_common.hpp */,
+				D35F6ABA221B08610001ED28 /* mnist_utils.hpp */,
 			);
 			path = NeuralNetwork;
 			sourceTree = "<group>";

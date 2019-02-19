@@ -9,10 +9,10 @@
 
 
 template <typename T>
-void Net<T>::zeroNet(){
+void Net<T>::BeforNewEpoch(unsigned int iternum){
     for(auto itl=m_layer.begin()+1;itl<m_layer.end();itl++){
         for(auto &neur:*itl)
-            neur.zero();
+            neur.BeforNewEpoch(iternum);
         
     }
 }
@@ -126,11 +126,11 @@ void Net<T>::CountErrorLastLayer(vector<T> target){
     auto it=m_layer.end()-1;
     auto prevL=it-1;
     for(int i=0;i<min((*it).size(),target.size());i++){
-        delta=(target.at(i)-(*it)[i].m_outputVal_sum)*((*(*it)[i].actf)[(*it)[i].sum_sum]);
-        (*it)[i].bias+=learning_rate*delta;
+        delta=(target.at(i)-(*it)[i].m_outputVal)*((*(*it)[i].actf)[(*it)[i].sum]);
+        (*it)[i].delta_bias_sum+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal_sum;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal_sum;
+            (*prevL)[s].m_outputWeights[i].sum_delta+=learning_rate*delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
         }
     }
         
@@ -145,11 +145,11 @@ void Net<T>::CountErrorLayer(unsigned int currLayerInd){
     for(int i=0;i<(*it).size();i++){
         summ.zero();
         summ=for_each((*it)[i].m_outputWeights.begin(),(*it)[i].m_outputWeights.end(),summ );
-        delta=summ.sum*((*(*it)[i].actf)[(*it)[i].sum_sum]);
+        delta=summ.sum*((*(*it)[i].actf)[(*it)[i].sum]);
         (*it)[i].bias+=learning_rate*delta;
         for(unsigned int s=0;s<(*prevL).size();s++){
-            (*prevL)[s].m_outputWeights[i].weight+=learning_rate*delta*(*prevL)[s].m_outputVal_sum;
-            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal_sum;
+            (*prevL)[s].m_outputWeights[i].sum_delta+=learning_rate*delta*(*prevL)[s].m_outputVal;
+            (*prevL)[s].m_outputWeights[i] .deltaWeight=delta*(*prevL)[s].m_outputVal;
         }
     }
     
@@ -167,16 +167,57 @@ void Net<T>::BackProp(vector<T> target){
     }
 }
 
+
+
 template <typename T>
-void Net<T>::Fit(vector<vector<T>> input,vector<vector<T>> target,unsigned int epoch_num){
+double Net<T>::count_accuracy(vector<vector<T>> input,vector<vector<T>> target,int resize){
+    accuracy=0;
+    auto it=out.begin();
+    for(int j=0;j<min(target.size(),input.size())/resize ; j++ ) {
+        addInputToLayer(input[j]);
+        FeedForvard();
+        it=max_element(out.begin(), out.end());
+        if(target[j][distance(out.begin(), it)]!=0)
+            accuracy++;
+    }
+    accuracy=accuracy/min(target.size(),input.size());
+    return accuracy;
+}
+
+template <typename T>
+void Net<T>::SaveWeightsAndBias(string name){
+    mINI::INIFile file(name);
+    mINI::INIStructure ini;
+    string section,weightname;
+    for(int i=0;i<this->m_layer.size();i++){
+        section="layer "+to_string(i+1);
+        ini[section]["bias"]=to_string(m_layer[i][0].bias);
+        for(int j=0;j<m_layer[i].size();j++){
+            for(int k=0;k<m_layer[i][j].m_outputWeights.size();k++){
+                weightname="w"+to_string(j+1)+"_"+to_string(k+1);
+                ini[section][weightname]=to_string(m_layer[i][j].m_outputWeights[k].weight);
+            }
+        }
+    }
+    file.write(ini);
+
+}
+
+template <typename T>
+void Net<T>::Fit(vector<vector<T>> input,vector<vector<T>> target,unsigned int epoch_num,bool save,unsigned int batch_size){
+    int iter;
     for(int i=0;i<epoch_num;i++){
-        target_sum.assign(target[0].size(), 0);
-        for(int j=0;j<min(target.size(),input.size()) ; j++ ) {
+        for(int j=0;j<min(target.size(),input.size())/batch_size ; j++ ) {
+            for(int b=batch_size*j;b<batch_size*(j+1) and b<min(target.size(),input.size());b++){
             addInputToLayer(input[j]);
             FeedForvard();
-            target_sum+=target[j];
+            BackProp(target[j]);
+                iter=b;
+            }
+            BeforNewEpoch(iter);
         }
-        BackProp(target_sum);
-        zeroNet();
+        cout<<i<<endl;
     }
+    if(save)SaveWeightsAndBias("Weights1");
+   cout<< count_accuracy(input, target);
 }

@@ -10,7 +10,7 @@
 
 
 
-template <typename T> Neuron<T>::Neuron(ActF<T>* activF,unsigned int index,unsigned int outnum,double b):m_myIndex(index),num_of_outputs(outnum),m_outputVal(0),bias(b),m_outputVal_sum(0){
+template <typename T> Neuron<T>::Neuron(ActF<T>* activF,unsigned int index,unsigned int outnum,double b):m_myIndex(index),num_of_outputs(outnum),m_outputVal(0),bias(b){
     actf=activF;
     for(int k=0;k<outnum;k++){
         m_outputWeights.push_back(Connection(outnum));
@@ -22,14 +22,13 @@ template <typename T> Neuron<T>::Neuron(ActF<T>* activF,unsigned int index,unsig
 
 template <typename T>
 void Neuron<T>::countOut(vector<Neuron<T>> &prevLayer){
-    T sum=this->bias;
+    double suml=this->bias;
     for(auto it=prevLayer.begin();it<prevLayer.end();it++){
-        sum+=it->m_outputVal*it->m_outputWeights[this->m_myIndex].weight;
+        suml+=it->m_outputVal*it->m_outputWeights[this->m_myIndex].weight;
     }
-    this->sum=sum;
-    sum_sum+=sum;
+    this->sum=suml;
     this->m_outputVal=(*this->actf)(sum);
-    m_outputVal_sum+=m_outputVal;
+    
 }
 
 
@@ -43,14 +42,19 @@ void Neuron<T>::updateW(vector<double> w){
 template <typename T>
 struct Sum {
     Sum() { sum = 0; }
-    void operator()(Connection k) { sum +=k.deltaWeight*(k.weight-k.deltaWeight); }
+    void operator()(Connection k) { sum +=k.deltaWeight*k.weight; }
     void zero (){sum=0;}
     T sum;
 };
 
 
 template <typename T>
-void Neuron<T>::zero(){
-    m_outputVal_sum=0;
-    sum_sum=0;
+void Neuron<T>::BeforNewEpoch(unsigned int iternum){
+    for(auto i:this->m_outputWeights){
+        i.deltaWeight=0;
+        i.weight+=i.sum_delta/iternum;
+        i.sum_delta=0;
+    }
+    bias+=delta_bias_sum/iternum;
+    delta_bias_sum=0;
 }
