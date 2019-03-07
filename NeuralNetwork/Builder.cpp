@@ -31,7 +31,7 @@ void GdBuilder<T>::UpdateWeights(vector<vector<vector<double>>> w) {
     }
 
 template<typename T>
-void GdBuilder<T>::LoadWeightsFromIni(string name){
+void GdBuilder<T>::LoadWeightsFromIni(const string name){
     
     mINI::INIFile file(name);
     mINI::INIStructure ini;
@@ -49,8 +49,23 @@ void GdBuilder<T>::LoadWeightsFromIni(string name){
     }
 
 }
-
-
+/*
+template<typename T>
+void GdBuilder<T>::LoadWeightsFromBinaryOneLayer(const string name,unsigned int l_num){
+    vector<vector<double> > w1(this->net->m_layer[l_num].size(), vector<double>(this->net->m_layer[l_num][0].m_outputWeights.size(), 0));
+    ifstream in;
+    in.open("/Users/valyagorbunova/Library/Developer/Xcode/DerivedData/NeuralNetwork-gtsewaeridktwjbexvbrpkbvjuix/Build/Products/Debug/net_train_weight2.bin", ios::in|ios::binary);
+    double d;
+    if(!in.is_open()) abort();
+   double w [this->net->m_layer[l_num].size()][this->net->m_layer[l_num][0].m_outputWeights.size()];
+    for(int i=0;i<this->net->m_layer[l_num].size();i++){
+    in.read((char*)w[i],sizeof(double)*this->net->m_layer[l_num][0].m_outputWeights.size());
+    }
+    for(int i=0;i<this->net->m_layer[l_num].size();i++){
+        for(int j=0;j<)
+    }
+}
+*/
 template<typename T>
 Net<T>& Director<T>::createWithRandomWeightsFromFunc(NetBuilder<T> & builder,vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate)
 {

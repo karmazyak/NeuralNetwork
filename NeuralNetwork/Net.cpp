@@ -180,7 +180,7 @@ double Net<T>::count_accuracy(vector<vector<T>> input,vector<vector<T>> target,i
         if(target[j][distance(out.begin(), it)]!=0)
             accuracy++;
     }
-    accuracy=accuracy/min(target.size(),input.size());
+    accuracy=accuracy*resize/min(target.size(),input.size());
     return accuracy;
 }
 
@@ -217,7 +217,8 @@ void Net<T>::Fit(vector<vector<T>> input,vector<vector<T>> target,unsigned int e
             BeforNewEpoch(iter);
         }
         cout<<i<<endl;
+        cout<< count_accuracy(input, target);
+        if(save)SaveWeightsAndBias("Weights1");
     }
-    if(save)SaveWeightsAndBias("Weights1");
    cout<< count_accuracy(input, target);
 }

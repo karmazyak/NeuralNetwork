@@ -42,6 +42,8 @@ public:
     void createNet(vector<ActF<T> *> functs,vector<unsigned int> NetConf,double rate);
     void UpdateWeights(vector<vector<vector<double>>> w);
     void LoadWeightsFromIni(string name);
+    void LoadWeightsFromBinaryOneLayer(const string name,unsigned int l_num);
+    
 };
 
 

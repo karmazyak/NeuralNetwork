@@ -26,11 +26,13 @@ int main(int argc, const char * argv[]) {
     
     NetBuilder<double> * builder=new GdBuilder<double>;
     Director<double> dir;
-    //Net<double> & net=dir.createWithWeightsFromINI(*builder, "myfile.ini","Weights1");
+   // Net<double> & net=dir.createWithWeightsFromINI(*builder, "myfile.ini","Weights1");
     
-   Net<double> & net=dir.createWithRandomWeightsFromINI(*builder, "myfile.ini");
+  Net<double> & net=dir.createWithRandomWeightsFromINI(*builder, "myfile.ini");
+   /*
     auto dataset = mnist::read_dataset<std::vector, std::vector, uint8_t, uint8_t>();
     normalize_dataset(dataset);
+    dataset.resize_training(3000);
     vector<vector<double>>training_labels;
    unsigned int k;
     for(int i=0;i<dataset.training_labels.size();i++){
@@ -49,8 +51,23 @@ int main(int argc, const char * argv[]) {
         a.clear(); 
     }
     
+  // cout<< net.count_accuracy(training_images, training_labels);
+   net.Fit(training_images, training_labels,4,false,128);
+    //cout<< net.count_accuracy(training_images, training_labels);  */
     
-   net.Fit(training_images, training_labels,3,true,128);
+/*#if 0
+    double biasarr[200];
+    FILE* fff = fopen("/Users/valyagorbunova/Library/Developer/Xcode/DerivedData/NeuralNetwork-gtsewaeridktwjbexvbrpkbvjuix/Build/Products/Debug/net_train_weight2.bin","rb");
+    assert(fff!=NULL);
+    size_t ret = fread(biasarr,sizeof(double),200,fff);
+    assert(ret==200);
+#endif
     
+    ifstream in;
+    in.open("/Users/valyagorbunova/Library/Developer/Xcode/DerivedData/NeuralNetwork-gtsewaeridktwjbexvbrpkbvjuix/Build/Products/Debug/net_train_weight2.bin", ios::in|ios::binary);
+    
+    if(!in.is_open()) abort();
+    double w[200];
+    in.read((char*)w,sizeof(double)*200);*/
     return 0;
 }

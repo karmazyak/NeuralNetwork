@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.361004"
+            timestampString = "573491746.656648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Neuron.cpp"
-            timestampString = "572299267.36263"
+            timestampString = "572725126.523397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -42,13 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.362895"
+            timestampString = "573491746.65795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "9">
+            startingLineNumber = "74"
+            endingLineNumber = "74">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Neuron.cpp"
-            timestampString = "572299267.363757"
+            timestampString = "572725126.524065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -74,7 +72,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.36385"
+            timestampString = "572363409.16856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
@@ -90,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.364213"
+            timestampString = "572363409.168923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -106,7 +104,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.3643481"
+            timestampString = "572363409.169094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -122,45 +120,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Builder.cpp"
-            timestampString = "572299267.364475"
+            timestampString = "573491746.6581891"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/Builder.cpp"
+            timestampString = "573491746.658311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/Builder.cpp"
+            timestampString = "573491746.658435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "createWithRandomWeightsFromINI(NetBuilder&lt;T&gt; &amp; builder,string name)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeuralNetwork/Builder.cpp"
-            timestampString = "572299267.36472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "createWithRandomWeightsFromINI(NetBuilder&lt;T&gt; &amp; builder,string name)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeuralNetwork/Builder.cpp"
-            timestampString = "572299267.364803"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "createWithRandomWeightsFromINI(NetBuilder&lt;T&gt; &amp; builder,string name)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.364868"
+            timestampString = "573491746.658546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "9">
          </BreakpointContent>
@@ -186,7 +184,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.365482"
+            timestampString = "572363409.170241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
@@ -202,7 +200,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.365602"
+            timestampString = "573491746.658695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -218,7 +216,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/MNISTParser.hpp"
-            timestampString = "572299267.366097"
+            timestampString = "573491746.658816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "350"
@@ -266,7 +264,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/MNISTParser.hpp"
-            timestampString = "572299267.3663779"
+            timestampString = "573491746.65947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "351"
@@ -282,7 +280,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/MNISTParser.hpp"
-            timestampString = "572299267.366436"
+            timestampString = "573491746.659888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "353"
@@ -330,7 +328,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/MNISTParser.hpp"
-            timestampString = "572299267.366486"
+            timestampString = "573491746.66032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "354"
@@ -346,7 +344,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.366536"
+            timestampString = "573491746.6607831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -362,7 +360,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.367046"
+            timestampString = "573491746.6609091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "main(int argc, const char * argv[])"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/main.cpp"
+            timestampString = "573491746.661018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -378,7 +392,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.367505"
+            timestampString = "573491746.661124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -393,24 +407,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.367929"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.36834"
+            timestampString = "572363409.172954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
@@ -422,15 +420,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/main.cpp"
-            timestampString = "572299267.36844"
+            timestampString = "573491746.66126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "9">
          </BreakpointContent>
@@ -442,7 +440,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Neuron.cpp"
-            timestampString = "572299267.368898"
+            timestampString = "572725126.524985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -458,7 +456,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.368991"
+            timestampString = "572363409.173561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
@@ -474,7 +472,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.369085"
+            timestampString = "572363409.173641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
@@ -490,12 +488,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeuralNetwork/Net.cpp"
-            timestampString = "572299267.369167"
+            timestampString = "572363409.1737109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "213"
             endingLineNumber = "213"
             landmarkName = "Fit(vector&lt;vector&lt;T&gt;&gt; input,vector&lt;vector&lt;T&gt;&gt; target,unsigned int epoch_num,bool save,unsigned int batch_size)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/Net.cpp"
+            timestampString = "572363409.173767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "Fit(vector&lt;vector&lt;T&gt;&gt; input,vector&lt;vector&lt;T&gt;&gt; target,unsigned int epoch_num,bool save,unsigned int batch_size)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/Net.cpp"
+            timestampString = "572363409.173817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "Fit(vector&lt;vector&lt;T&gt;&gt; input,vector&lt;vector&lt;T&gt;&gt; target,unsigned int epoch_num,bool save,unsigned int batch_size)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/Net.cpp"
+            timestampString = "572363409.173864"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "count_accuracy(vector&lt;vector&lt;T&gt;&gt; input,vector&lt;vector&lt;T&gt;&gt; target,int resize)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeuralNetwork/main.cpp"
+            timestampString = "573491746.661472"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
